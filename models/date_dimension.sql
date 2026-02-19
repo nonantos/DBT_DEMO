@@ -14,7 +14,7 @@ MONTH(TO_TIMESTAMP(STARTED_AT)) AS MONTH_STARTED_AT,
 {{present_or_past('STARTED_AT')}} AS PRESENT_PAST,
 {{get_season('STARTED_AT')}} AS STATION_OF_YEAR
     
-from {{ source('demo', 'bike') }}
+from {{ ref('stg_bike') }}
 where STARTED_AT != 'started_at'
 
 )
